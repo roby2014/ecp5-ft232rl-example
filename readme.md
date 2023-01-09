@@ -10,7 +10,7 @@ This repository contains a simple program written in different HDLs (*Hardware D
 </p>
 
 ## Dependencies
-- FPGA toolchain
+- Lattice ECP5 FPGA toolchain
     - [yosys](https://github.com/YosysHQ/yosys) – Yosys Open SYnthesis Suite.
     - [nextpnr-ecp5](https://github.com/YosysHQ/nextpnr) - A portable FPGA place and route tool (for ECP5 FPGA).
     - [prjtrellis](https://github.com/YosysHQ/prjtrellis) - Provides the device database and tools for bitstream creation.
@@ -35,7 +35,7 @@ make
 
 After running `make`, the bitstream should be uploaded to the FPGA and you should be able to control the LED via input button.
 
-## Info
+## Information
 
 When running `make`, this is what happens:
 
