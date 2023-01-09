@@ -1,0 +1,4 @@
+LOCATE COMP "clk" SITE "P6";
+LOCATE COMP "io_enable" SITE "R7";
+LOCATE COMP "io_led" SITE "T6";
+IOBUF PORT "io_led" OPENDRAIN=ON;
