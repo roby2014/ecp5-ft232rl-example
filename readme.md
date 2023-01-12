@@ -12,10 +12,10 @@ This repository contains a simple program written in different HDLs (*Hardware D
 </p>
 
 ## Dependencies
-- Lattice ECP5 FPGA toolchain
+- FPGA toolchain
     - [yosys](https://github.com/YosysHQ/yosys) – Yosys Open SYnthesis Suite.
-    - [nextpnr-ecp5](https://github.com/YosysHQ/nextpnr) - A portable FPGA place and route tool (for ECP5 FPGA).
-    - [prjtrellis](https://github.com/YosysHQ/prjtrellis) - Provides the device database and tools for bitstream creation.
+    - [nextpnr-ecp5](https://github.com/YosysHQ/nextpnr) - A portable FPGA place and route tool (for Lattice ECP5 FPGA).
+    - [prjtrellis](https://github.com/YosysHQ/prjtrellis) - Device database and tools for bitstream creation (fully open source flow for ECP5 FPGA).
     - [openFPGALoader](https://github.com/trabucayre/openFPGALoader) - Universal utility for programming FPGA 
 - git
 - make
@@ -30,16 +30,27 @@ In case you want to run the [SpinalHDL example](./spinalhdl_example/), you will 
 
 ## Uploading to FPGA
 ```
-git clone https://github.com/roby2014/ecp5-ft232rl-example
-cd ecp5-ft232rl-example/[verilog/vhdl/spinalhdl]_example
-make
+> git clone https://github.com/roby2014/ecp5-ft232rl-example
+> cd ecp5-ft232rl-example/[verilog/vhdl/spinalhdl]_example
+> make
+openFPGALoader --cable ft232RL --pins=RXD:RTS:TXD:CTS led_control.bit
+Jtag probe limited to 3MHz
+Jtag frequency : requested 6000000Hz -> real 3000000Hz
+ret 0
+Open file: DONE
+Parse file: DONE
+Enable configuration: DONE
+SRAM erase: DONE
+Loading: [==================================================] 100.00%
+Done
+Disable configuration: DONE
 ```
 
 After running `make`, the bitstream should be uploaded to the FPGA and you should be able to control the LED via input button.
 
 ## Information
 
-When running `make`, this is what happens:
+When running `make`, this is what happens "*under the hood*":
 
 1. `yosys` synthetizes the Verilog/Vhdl files, generating a `json` file with the RTL information.
 2. `nextpnr-ecp5` transforms synthetized RTL code and pin mapping (`lpf` file) into a FPGA config file.
