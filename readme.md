@@ -4,6 +4,8 @@ This repository contains a simple program written in different HDLs (*Hardware D
 
 *The program is a simple LED controller, which turns ON the LED everytime the input signal is ON.*
 
+### You can find more information on how to setup the hardware/toolchain on my [blog post](https://roby2014-me.vercel.app/programming-a-colorlight-5a-75e-board-ECP5-FPGA-with-open-source-tools/).
+
 <p float="left">
   <img src="https://www.colorlight-led.com/Uploads/5a17d3b99f9c0.jpg" width="300" />
   <img src="https://abra-electronics.com/images/detailed/140/ARD-FTDI-IO.jpg" width="300" /> 
